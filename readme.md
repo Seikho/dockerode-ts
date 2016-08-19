@@ -21,9 +21,7 @@ npm install dockerode-ts
 
 ## Usage
 ```ts
-import * as Dockerode from 'dockerode-ts';
-// or...
-import Dockerode = require('dockerode-ts');
+import Dockerode from 'dockerode-ts';
 
 const docker = new Dockerode({ /** options... */ });
 ```
