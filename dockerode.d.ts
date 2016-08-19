@@ -166,8 +166,8 @@ export interface Container {
 
     putArchive(options: {}, callback: Callback<stream.Writable>): void;
 
-    logs(options: {}, callback: Callback<any>): void;
-    logs(callback: Callback<any>): void;
+    logs(options: { stdout?: boolean, stderr?: boolean, follow?: boolean, since?: number, details?: boolean, tail?: number, timestamps?: boolean }, callback: Callback<stream.Readable>): void;
+    logs(callback: Callback<stream.Readable>): void;
 
     stats(options: {}, callback: Callback<any>): void;
     stats(callback: Callback<any>): void;
