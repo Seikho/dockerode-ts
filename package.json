@@ -1,6 +1,6 @@
 {
   "name": "dockerode-ts",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Dockerode wrapped in TypeScript",
   "main": "index.js",
   "scripts": {
@@ -29,5 +29,5 @@
   "devDependencies": {
     "typescript": "^2.1.0-dev.20160818"
   },
-  "types": "./index.ts"
+  "types": "./dockerode.d.ts"
 }
