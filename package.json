@@ -23,9 +23,11 @@
   },
   "homepage": "https://github.com/seikho/dockerode-ts#readme",
   "dependencies": {
-    "@types/node": "^6.0.35",
     "dockerode": "^2.3.0",
+    "@types/node": "^6.0.35"    
+  },
+  "devDependencies": {
     "typescript": "^2.1.0-dev.20160818"
   },
-  "typings": "index.ts"
+  "types": "./index.ts"
 }
