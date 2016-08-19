@@ -1,0 +1,31 @@
+{
+  "name": "dockerode-ts",
+  "version": "0.1.0",
+  "description": "Dockerode wrapped in TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seikho/dockerode-ts.git"
+  },
+  "keywords": [
+    "dockerode",
+    "typescript",
+    "docker"
+  ],
+  "author": "Carl Winkler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seikho/dockerode-ts/issues"
+  },
+  "homepage": "https://github.com/seikho/dockerode-ts#readme",
+  "dependencies": {
+    "@types/node": "^6.0.35",
+    "dockerode": "^2.3.0",
+    "typescript": "^2.1.0-dev.20160818"
+  },
+  "typings": "index.ts"
+}
