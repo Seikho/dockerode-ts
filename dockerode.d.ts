@@ -1,3 +1,5 @@
+/// <reference types="node" />
+
 import * as stream from 'stream';
 import * as events from 'events';
 
@@ -233,3 +235,6 @@ declare class Exec {
     resize(options: {}, callback: CB<any>): void;
 }
 
+interface ContainerInfo {
+
+}
