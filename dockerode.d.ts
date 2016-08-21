@@ -20,7 +20,7 @@ export interface DockerOptions {
 export default class Docker {
     constructor(options?: DockerOptions);
 
-    createContainer(options: {}, callback: Callback<any>): void;
+    createContainer(options: ContainerCreateOptions, callback: Callback<any>): void;
 
     createImage(options: {}, callback: Callback<any>): void;
     createImage(auth: any, options: {}, callback: Callback<any>): void;
@@ -471,7 +471,7 @@ export interface ImageInspectInfo {
         Tty: boolean;
         OpenStdin: boolean;
         StdinOnce: boolean;
-        Env: Array<string>;        
+        Env: Array<string>;
         Cmd: Array<string>;
         ArgsEscaped: boolean;
         Image: string;
@@ -512,11 +512,96 @@ export interface ImageInspectInfo {
     GraphDriver:
     {
         Name: string;
-        Data: 
+        Data:
         {
             DeviceId: string;
             DeviceName: string;
             DeviceSize: string;
+        }
+    }
+}
+
+interface ContainerCreateOptions {
+    Hostname?: string;
+    Domainname?: string;
+    User?: string;
+    AttachStdin?: boolean;
+    AttachStdout?: boolean;
+    AttachStderr?: boolean;
+    Tty?: boolean;
+    OpenStdin?: boolean;
+    StdinOnce?: boolean;
+    Env?: Array<string>;
+    Cmd?: Array<string>;
+    Entrypoint?: string;
+    Image?: string;
+    Labels?: { [label: string]: string };
+    Volumes?: { [volume: string]: {} }
+    WorkingDir?: string;
+    NetworkDisabled?: boolean;
+    MacAddress?: boolean;
+    ExposedPorts?: { [port: string]: {} }
+    StopSignal?: string;
+    HostConfig?: {
+        Binds?: Array<string>;
+        Links?: Array<string>;
+        Memory?: number;
+        MemorySwap?: number;
+        MemoryReservation?: number;
+        KernelMemory?: number;
+        CpuPercent?: number;
+        CpuShares?: number;
+        CpuPeriod?: number;
+        CpuQuota?: number;
+        CpusetMems?: string;
+        MaximumIOps?: number;
+        MaxmimumIOBps?: number;
+        BlkioWeightDevice?: Array<{}>;
+        BlkioDeviceReadBps?: Array<{}>;
+        BlkioDeviceReadIOps?: Array<{}>;
+        BlkioDeviceWriteBps?: Array<{}>;
+        BlkioDeviceWriteIOps?: Array<{}>;
+        MemorySwappiness?: number;
+        OomKillDisable?: boolean;
+        OomScoreAdj?: number;
+        PidMode?: string;
+        PidsLimit?: number;
+        PortBindings?: { [portAndProtocol: string]: Array<{ [index: string]: string }> };
+        PublicAllPorts?: boolean;
+        Privileged?: boolean;
+        ReadonlyRootfs?: boolean;
+        Dns?: Array<string>;
+        DnsOptions?: Array<string>;
+        DnsSearch?: Array<string>;
+        ExtraHosts?: any;
+        VolumesFrom?: Array<string>;
+        CapAdd?: Array<string>;
+        CapDrop?: Array<string>;
+        GroupAdd?: Array<string>;
+        RestartPolicy?: { [index: string]: number | string };
+        NetworkMode?: string;
+        Devices?: Array<any>;
+        Sysctls?: { [index: string]: string };
+        Ulimits?: Array<{}>;
+        LogConfig?: { [index: string]: string | {} };
+        SecurityOpt?: { [index: string]: any };
+        CgroupParent?: string;
+        VolumeDriver?: string;
+        ShmSize?: number;
+    }
+    NetworkingConfig?: {
+        EndpointsConfig?: {
+            [index: string]: any;
+            isolated_nw?: {
+                [index: string]: any;
+                IPAMConfig?: {
+                    IPv4Address?: string;
+                    IPv6Adress?: string;
+                    LinkLocalIPs?: Array<string>;
+                }
+                Links?: Array<string>;
+                Aliases?: Array<string>;
+            }
         }
     }
 }
