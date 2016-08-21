@@ -521,7 +521,7 @@ export interface ImageInspectInfo {
     }
 }
 
-interface ContainerCreateOptions {
+export interface ContainerCreateOptions {
     Hostname?: string;
     Domainname?: string;
     User?: string;
