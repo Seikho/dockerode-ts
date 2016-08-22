@@ -286,7 +286,7 @@ export interface NetworkInfo {
     MacAddress: string;
 }
 
-interface ContainerInspectInfo {
+export interface ContainerInspectInfo {
     Id: string;
     Created: string;
     Path: string;
