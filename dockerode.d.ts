@@ -20,10 +20,10 @@ export interface DockerOptions {
 export default class Docker {
     constructor(options?: DockerOptions);
 
-    createContainer(options: ContainerCreateOptions, callback: Callback<any>): void;
+    createContainer(options: ContainerCreateOptions, callback: Callback<Container>): void;
 
-    createImage(options: {}, callback: Callback<any>): void;
-    createImage(auth: any, options: {}, callback: Callback<any>): void;
+    createImage(options: {}, callback: Callback<Image>): void;
+    createImage(auth: any, options: {}, callback: Callback<Image>): void;
 
     loadImage(file: string, options: {}, callback: Callback<any>): void;
     loadImage(file: string, callback: Callback<any>): void;
@@ -521,6 +521,7 @@ export interface ImageInspectInfo {
 }
 
 export interface ContainerCreateOptions {
+    name?: string;
     Hostname?: string;
     Domainname?: string;
     User?: string;
