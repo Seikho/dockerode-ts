@@ -90,7 +90,6 @@ export default class Docker {
     getEvents(options: {}, callback: Callback<stream.Readable>): void;
 
     pull(repoTag: string, options: {}, callback: Callback<any>, auth?: {}): Image;
-    pull(repoTag: string, callback: Callback<any>, auth?: {}): Image;
 
     run(image: string, cmd: string[], outputStream: stream.Writable, createOptions: {}, startOptions: {}, callback: Callback<any>): events.EventEmitter;
     run(image: string, cmd: string[], outputStream: stream.Writable, startOptions: {}, callback: Callback<any>): events.EventEmitter;
