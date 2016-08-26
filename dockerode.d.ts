@@ -15,6 +15,7 @@ export interface DockerOptions {
     cert?: string;
     key?: string;
     protocol?: "https" | "http";
+    timeout?: number;
 }
 
 export default class Docker {
