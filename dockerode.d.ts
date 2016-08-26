@@ -17,6 +17,8 @@ export interface DockerOptions {
     protocol?: "https" | "http";
     timeout?: number;
 }
+type ReadableStream = stream.Readable | NodeJS.ReadableStream;
+type WritableStream = stream.Writable | NodeJS.ReadWriteStream;
 
 export default class Docker {
     constructor(options?: DockerOptions);
@@ -34,8 +36,8 @@ export default class Docker {
 
     checkAuth(options: any, callback: Callback<any>): void;
 
-    buildImage(file: string | stream.Readable, options: {}, callback: Callback<stream.Readable>): void;
-    buildImage(file: string | stream.Readable, callback: Callback<stream.Readable>): void;
+    buildImage(file: string | ReadableStream, options: {}, callback: Callback<any>): void;
+    buildImage(file: string | ReadableStream, callback: Callback<any>): void;
 
     getContainer(id: string): Container;
 
@@ -88,15 +90,15 @@ export default class Docker {
 
     ping(callback: Callback<any>): void;
 
-    getEvents(options: {}, callback: Callback<stream.Readable>): void;
-    getEvents(callback: Callback<stream.Readable>): void;
+    getEvents(options: {}, callback: Callback<ReadableStream>): void;
+    getEvents(callback: Callback<ReadableStream>): void;
 
     pull(repoTag: string, options: {}, callback: Callback<any>, auth?: {}): Image;
 
-    run(image: string, cmd: string[], outputStream: stream.Writable, createOptions: {}, startOptions: {}, callback: Callback<any>): events.EventEmitter;
-    run(image: string, cmd: string[], outputStream: stream.Writable, startOptions: {}, callback: Callback<any>): events.EventEmitter;
-    run(image: string, cmd: string[], outputStream: stream.Writable, callback: Callback<any>): events.EventEmitter;
-    run(image: string, cmd: string[], outputStream: stream.Writable, createOptions: {}, callback: Callback<any>): events.EventEmitter;
+    run(image: string, cmd: string[], outputStream: WritableStream, createOptions: {}, startOptions: {}, callback: Callback<any>): events.EventEmitter;
+    run(image: string, cmd: string[], outputStream: WritableStream, startOptions: {}, callback: Callback<any>): events.EventEmitter;
+    run(image: string, cmd: string[], outputStream: WritableStream, callback: Callback<any>): events.EventEmitter;
+    run(image: string, cmd: string[], outputStream: WritableStream, createOptions: {}, callback: Callback<any>): events.EventEmitter;
 
     swarmInit(options: {}, callback: Callback<any>): void;
 
@@ -123,7 +125,7 @@ export interface Container {
 
     changes(callback: Callback<any>): void;
 
-    export(callback: Callback<stream.Readable>): void;
+    export(callback: Callback<ReadableStream>): void;
 
     start(options: {}, callback: Callback<any>): void;
     start(callback: Callback<any>): void;
@@ -161,14 +163,14 @@ export interface Container {
     /** Deprecated since RAPI v1.20 */
     copy(callback: Callback<any>): void;
 
-    getArchive(options: {}, callback: Callback<stream.Readable>): void;
+    getArchive(options: {}, callback: Callback<ReadableStream>): void;
 
     infoArchive(options: {}, callback: Callback<any>): void;
 
-    putArchive(options: {}, callback: Callback<stream.Writable>): void;
+    putArchive(options: {}, callback: Callback<WritableStream>): void;
 
-    logs(options: { stdout?: boolean, stderr?: boolean, follow?: boolean, since?: number, details?: boolean, tail?: number, timestamps?: boolean }, callback: Callback<stream.Readable>): void;
-    logs(callback: Callback<stream.Readable>): void;
+    logs(options: { stdout?: boolean, stderr?: boolean, follow?: boolean, since?: number, details?: boolean, tail?: number, timestamps?: boolean }, callback: Callback<ReadableStream>): void;
+    logs(callback: Callback<ReadableStream>): void;
 
     stats(options: {}, callback: Callback<any>): void;
     stats(callback: Callback<any>): void;
@@ -179,10 +181,10 @@ export interface Image {
 
     history(callback: Callback<any>): void;
 
-    get(callback: Callback<stream.Readable>): void;
+    get(callback: Callback<ReadableStream>): void;
 
-    push(options: {}, callback: Callback<stream.Readable>): void;
-    push(callback: Callback<stream.Readable>): void;
+    push(options: {}, callback: Callback<ReadableStream>): void;
+    push(callback: Callback<ReadableStream>): void;
 
     tag(options: {}, callback: Callback<any>): void;
     tag(callback: Callback<any>): void;
