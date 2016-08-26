@@ -89,6 +89,7 @@ export default class Docker {
     ping(callback: Callback<any>): void;
 
     getEvents(options: {}, callback: Callback<stream.Readable>): void;
+    getEvents(callback: Callback<stream.Readable>): void;
 
     pull(repoTag: string, options: {}, callback: Callback<any>, auth?: {}): Image;
 
@@ -105,10 +106,8 @@ export default class Docker {
 
     swarmUpdate(options: {}, callback: Callback<any>): void;
 
-    modem: DockerModem;
+    modem: any;
 }
-
-export type DockerModem = any;
 
 export interface Container {
     inspect(options: {}, callback: Callback<ContainerInspectInfo>): void;
