@@ -105,8 +105,10 @@ export default class Docker {
 
     swarmUpdate(options: {}, callback: Callback<any>): void;
 
-
+    modem: DockerModem;
 }
+
+export type DockerModem = any;
 
 export interface Container {
     inspect(options: {}, callback: Callback<ContainerInspectInfo>): void;
