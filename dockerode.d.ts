@@ -34,8 +34,8 @@ export default class Docker {
 
     checkAuth(options: any, callback: Callback<any>): void;
 
-    buildImage(file: string, options: {}, callback: Callback<any>): void;
-    buildImage(file: string, callback: Callback<any>): void;
+    buildImage(file: string | stream.Readable, options: {}, callback: Callback<stream.Readable>): void;
+    buildImage(file: string | stream.Readable, callback: Callback<stream.Readable>): void;
 
     getContainer(id: string): Container;
 
