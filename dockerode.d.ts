@@ -174,6 +174,9 @@ export interface Container {
 
     stats(options: {}, callback: Callback<any>): void;
     stats(callback: Callback<any>): void;
+
+    modem: any;
+    id?: string;
 }
 
 export interface Image {
@@ -191,6 +194,9 @@ export interface Image {
 
     remove(options: {}, callback: Callback<any>): void;
     remove(callback: Callback<any>): void;
+
+    modem: any;
+    id?: string;
 }
 
 export interface Volume {
@@ -198,6 +204,9 @@ export interface Volume {
 
     remove(options: {}, callback: Callback<any>): void;
     remove(callback: Callback<any>): void;
+
+    modem: any;
+    name?: string;
 }
 
 export interface Service {
@@ -207,14 +216,23 @@ export interface Service {
     remove(callback: Callback<any>): void;
 
     update(options: {}, callback: Callback<any>): void;
+
+    modem: any;
+    id?: string;
 }
 
 export interface Task {
     inspect(callback: Callback<any>): void;
+
+    modem: any;
+    id?: string;
 }
 
 export interface Node {
     inspect(callback: Callback<any>): void;
+
+    modem: any;
+    id?: string;
 }
 
 export interface Network {
@@ -228,6 +246,9 @@ export interface Network {
 
     disconnect(options: {}, callback: Callback<any>): void;
     disconnect(callback: Callback<any>): void;
+
+    modem: any;
+    id?: string;
 }
 
 export interface Exec {
@@ -236,6 +257,9 @@ export interface Exec {
     start(options: {}, callback: Callback<any>): void;
 
     resize(options: {}, callback: Callback<any>): void;
+
+    modem: any;
+    id?: string;
 }
 
 export interface ImageInfo {
