@@ -571,7 +571,7 @@ export interface ContainerCreateOptions {
         PidMode?: string;
         PidsLimit?: number;
         PortBindings?: { [portAndProtocol: string]: Array<{ [index: string]: string }> };
-        PublicAllPorts?: boolean;
+        PublishAllPorts?: boolean;
         Privileged?: boolean;
         ReadonlyRootfs?: boolean;
         Dns?: Array<string>;
