@@ -17,8 +17,8 @@ export interface DockerOptions {
     protocol?: "https" | "http";
     timeout?: number;
 }
-type ReadableStream = stream.Readable | NodeJS.ReadableStream;
-type WritableStream = stream.Writable | NodeJS.ReadWriteStream;
+type ReadableStream = NodeJS.ReadableStream;
+type WritableStream = NodeJS.ReadWriteStream;
 
 export default class Docker {
     constructor(options?: DockerOptions);
