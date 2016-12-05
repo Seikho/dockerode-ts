@@ -167,7 +167,8 @@ export interface Container {
 
     infoArchive(options: {}, callback: Callback<any>): void;
 
-    putArchive(options: {}, callback: Callback<WritableStream>): void;
+    /** @param file Filename (will read synchronously), Buffer or stream */
+    putArchive(file: string | Buffer | ReadableStream, options: {}, callback: Callback<WritableStream>): void;
 
     logs(options: { stdout?: boolean, stderr?: boolean, follow?: boolean, since?: number, details?: boolean, tail?: number, timestamps?: boolean }, callback: Callback<ReadableStream>): void;
     logs(callback: Callback<ReadableStream>): void;
