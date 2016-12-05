@@ -176,6 +176,8 @@ export interface Container {
     stats(options: {}, callback: Callback<any>): void;
     stats(callback: Callback<any>): void;
 
+    attach(options: {}, callback: Callback<ReadableStream>): void;
+
     modem: any;
     id?: string;
 }
