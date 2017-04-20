@@ -1,3 +1,13 @@
+# These types have been published to [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/dockerode)
+
+If you have an issue with the types, you can raise an issue here or on `DefinitelyTyped`
+
+You can install types from `DefinitelyTyped` using `npm` or `yarn`:
+```
+yarn add @types/dockerode --dev
+npm install @types/dockerode --save-dev
+```
+
 # dockerode-ts
 
 [Dockerode](https://github.com/apocas/dockerode) wrapped in TypeScript
